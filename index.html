@@ -1,0 +1,648 @@
+<title>Martín Oliveto</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg: #FBF6EE;
+    --surface: #FFFFFF;
+    --surface-2: #F4EADB;
+    --ink: #3B2E22;
+    --ink-soft: #8D7A66;
+    --line: #E9DCC7;
+    --accent: #8B5A34;
+    --accent-strong: #6E4526;
+    --accent-soft: #F1E3D0;
+    --whatsapp: #25D366;
+    --whatsapp-ink: #0B3B22;
+    --shadow: 0 16px 32px -20px rgba(59,46,34,0.28);
+
+    --c-carpinteria: #8B5A34;
+    --c-carpinteria-soft: #F1E3D0;
+    --c-ac: #6C5B49;
+    --c-ac-soft: #ECE3D6;
+    --c-herreria: #4A392B;
+    --c-herreria-soft: #E7DCCC;
+    --c-pintura: #B4793F;
+    --c-pintura-soft: #F5E7D3;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scrollbar-gutter: stable; }
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.55;
+    padding-inline: 20px;
+  }
+  h1,h2,h3{
+    font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--ink);
+  }
+  a{ color: inherit; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:7px;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .wrap{ max-width: 980px; margin-inline: auto; }
+
+  /* ---------- header ---------- */
+  header{
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 40;
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    margin-inline: -20px;
+    padding-inline: 20px;
+  }
+  .header-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 12px;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .logo-badge{
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    display:grid; place-items:center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800; font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    flex: none;
+  }
+  .brand-name{ font-family:"Poppins",sans-serif; font-weight: 700; font-size: 1.1rem; }
+  .brand-tag{ font-size: 0.76rem; color: var(--ink-soft); }
+
+  .btn-cta{
+    font-family:"Poppins",sans-serif; font-weight: 600; font-size: 0.85rem;
+    color: var(--surface);
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-cta:hover{ background: var(--accent-strong); }
+  button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible{
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-block: 52px 30px;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+  }
+  .hero-badge{
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 16px;
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 7vw, 3.6rem);
+    letter-spacing: -0.01em;
+  }
+  .hero p{
+    color: var(--ink-soft);
+    max-width: 56ch;
+    font-size: 1.02rem;
+  }
+
+  section{ scroll-margin-top: 88px; }
+
+  /* ---------- horizontal service menu ---------- */
+  .menu-section{ padding-block: 6px 50px; }
+  .menu-heading{ text-align:center; margin-bottom: 20px; }
+  .menu-heading h2{ font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-strong); }
+  .menu-row{
+    display:flex;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-block: 4px 10px;
+    padding-inline: 2px;
+  }
+  .menu-row::-webkit-scrollbar{ display:none; }
+  .menu-item{
+    flex: 1 1 0;
+    min-width: 148px;
+    display:flex; flex-direction:column; align-items:center; gap: 10px;
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 20px 14px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .menu-item:hover{ transform: translateY(-3px); border-color: var(--accent); }
+  .menu-icon{
+    width: 54px; height: 54px; border-radius: 14px;
+    display:grid; place-items:center; flex: none;
+  }
+  .menu-icon svg{ width: 28px; height: 28px; }
+  .menu-item .m-title{ font-family:"Poppins",sans-serif; font-weight: 600; font-size: 0.95rem; text-align:center; }
+
+  /* ---------- consulta ---------- */
+  #consulta{ padding-block: 10px 46px; }
+  .section-head{ margin-bottom: 20px; display:flex; flex-direction:column; gap:6px; text-align:center; }
+  .section-head h2{ font-size: 1.6rem; }
+  .consulta-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+  }
+  form{ display:grid; gap: 16px; }
+  .field{ display:grid; gap: 6px; }
+  .field label{ font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); font-family:"Poppins",sans-serif; }
+  .field input, .field select, .field textarea{
+    font: inherit; font-size: 0.95rem;
+    background: var(--bg);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    width: 100%;
+  }
+  .field textarea{ resize: vertical; min-height: 90px; }
+  .row-2{ display:grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 560px){ .row-2{ grid-template-columns: 1fr; } }
+  .submit-row{ display:flex; align-items:center; gap: 12px; flex-wrap: wrap; }
+  .form-note{ font-size: 0.8rem; color: var(--ink-soft); }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top: 1px solid var(--line);
+    margin-top: 10px;
+    padding-block: 22px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+    color: var(--ink-soft); font-size: 0.85rem;
+  }
+  footer strong{ color: var(--ink); font-family:"Poppins", sans-serif; }
+
+  /* ---------- whatsapp bubble ---------- */
+  .wsp-bubble{
+    position: fixed;
+    right: 18px;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--whatsapp);
+    color: var(--whatsapp-ink);
+    display:grid; place-items:center;
+    box-shadow: 0 10px 24px -8px rgba(59,46,34,0.4);
+    z-index: 50;
+    transition: transform .15s ease;
+  }
+  .wsp-bubble:hover{ transform: scale(1.06); }
+  .wsp-bubble svg{ width: 28px; height: 28px; }
+  .btn-wsp{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:"Poppins",sans-serif; font-weight: 600; font-size: 0.86rem;
+    background: var(--whatsapp); color: var(--whatsapp-ink);
+    border: none; border-radius: 999px;
+    padding: 11px 18px; cursor: pointer;
+  }
+  .btn-wsp svg{ width:16px; height:16px; }
+  .btn-wsp:hover{ filter: brightness(0.96); }
+
+  /* ---------- service page (opens as a distinct screen) ---------- */
+  .service-page{
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    background: var(--bg);
+    overflow-y: auto;
+    padding-inline: 20px;
+    padding-block: env(safe-area-inset-top, 0px) calc(40px + env(safe-area-inset-bottom, 0px));
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .28s ease, transform .28s ease;
+  }
+  .service-page.open{ opacity: 1; transform: translateY(0); }
+  .service-page[hidden]{ display:none; }
+
+  .sp-topbar{
+    position: sticky; top: env(safe-area-inset-top, 0px);
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block: 16px; margin-inline: -20px; padding-inline: 20px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 26px;
+  }
+  .btn-back{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:"Poppins",sans-serif; font-weight: 600; font-size: 0.86rem;
+    background: var(--surface); border: 1px solid var(--line); color: var(--ink);
+    border-radius: 999px; padding: 9px 16px 9px 12px; cursor: pointer;
+  }
+  .btn-back svg{ width: 16px; height: 16px; }
+  .btn-back:hover{ border-color: var(--accent); color: var(--accent); }
+
+  .sp-hero{ display:flex; align-items:center; gap:16px; margin-bottom: 22px; flex-wrap: wrap; }
+  .sp-hero .menu-icon{ width: 58px; height: 58px; }
+  .sp-hero .menu-icon svg{ width: 30px; height: 30px; }
+  .sp-hero h1{ font-size: clamp(1.5rem, 4vw, 2rem); }
+  .sp-hero p{ color: var(--ink-soft); font-size: 0.95rem; margin: 4px 0 0; }
+
+  .jobs-list{ display:grid; gap: 18px; margin-top: 4px; margin-bottom: 28px; }
+  .job-row{
+    display:grid; grid-template-columns: 84px 1fr; gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 14px;
+    align-items: center;
+  }
+  @media (max-width: 520px){ .job-row{ grid-template-columns: 60px 1fr; } }
+  .job-img{
+    width: 84px; height: 84px;
+    border-radius: 14px;
+    display:grid; place-items:center;
+    flex: none;
+  }
+  @media (max-width: 520px){ .job-img{ width: 60px; height: 60px; } }
+  .job-img svg{ width: 58px; height: 58px; }
+  @media (max-width: 520px){ .job-img svg{ width: 42px; height: 42px; } }
+  .job-name{ font-family:"Poppins",sans-serif; font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+  .job-desc{ font-size: 0.88rem; color: var(--ink-soft); }
+
+  .sp-cta{ display:flex; gap: 14px; flex-wrap: wrap; padding-bottom: 10px; }
+
+  [hidden]{ display:none !important; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; animation: none !important; }
+  }
+</style>
+
+<header>
+  <div class="header-row wrap">
+    <div class="brand">
+      <span class="logo-badge">MO</span>
+      <div>
+        <div class="brand-name">Martín Oliveto</div>
+        <div class="brand-tag">Oficios a domicilio</div>
+      </div>
+    </div>
+    <button class="btn-cta" data-scroll="consulta">Contacto</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="eyebrow hero-badge">● Bienvenido</span>
+    <h1>Martín Oliveto</h1>
+    <p id="bio-texto">Carpintería, aire acondicionado, herrería y pintura — un solo contacto para coordinar el trabajo por WhatsApp.</p>
+  </section>
+
+  <section id="servicios" class="menu-section">
+    <div class="menu-heading">
+      <h2>Elegí un servicio</h2>
+    </div>
+    <div class="menu-row">
+      <button class="menu-item" data-open="page-carpinteria">
+        <span class="menu-icon" style="background:var(--c-carpinteria-soft); color:var(--c-carpinteria);">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30 L8 10 L28 30 Z"/><path d="M12 22 h8" stroke-width="1.6"/></svg>
+        </span>
+        <span class="m-title">Carpintería</span>
+      </button>
+      <button class="menu-item" data-open="page-ac">
+        <span class="menu-icon" style="background:var(--c-ac-soft); color:var(--c-ac);">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="24" height="12" rx="3"/><path d="M10 15 h16 M10 18 h16"/><path d="M20 24 v8 M16 28 l4 4 4-4"/></svg>
+        </span>
+        <span class="m-title">Aire Acondicionado</span>
+      </button>
+      <button class="menu-item" data-open="page-herreria">
+        <span class="menu-icon" style="background:var(--c-herreria-soft); color:var(--c-herreria);">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8 v24 M16 8 v24 M22 8 v24 M28 8 v24 M8 14 h22 M8 24 h22"/></svg>
+        </span>
+        <span class="m-title">Herrería</span>
+      </button>
+      <button class="menu-item" data-open="page-pintura">
+        <span class="menu-icon" style="background:var(--c-pintura-soft); color:var(--c-pintura);">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="16" height="8" rx="2"/><path d="M17 17 v6 M17 23 h5 v8 h-5z"/><path d="M27 11 h5"/></svg>
+        </span>
+        <span class="m-title">Pintura</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="consulta">
+    <div class="section-head">
+      <h2>Hacé tu consulta</h2>
+    </div>
+    <div class="consulta-card">
+      <form id="form-consulta">
+        <div class="row-2">
+          <div class="field">
+            <label for="c-nombre">Nombre</label>
+            <input id="c-nombre" name="nombre" type="text" required autocomplete="name" placeholder="Tu nombre">
+          </div>
+          <div class="field">
+            <label for="c-servicio">Servicio</label>
+            <select id="c-servicio" name="servicio">
+              <option>Carpintería</option>
+              <option>Aire Acondicionado</option>
+              <option>Herrería</option>
+              <option>Pintura</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="c-mensaje">Contanos qué necesitás</label>
+          <textarea id="c-mensaje" name="mensaje" required placeholder="Ej: se me trabó la puerta del placar del dormitorio"></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn-wsp">
+            <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3 9 3 16c0 2.6.8 5 2.1 7L3 29l6.2-2C11 28 13 28.5 16 28.5c7 0 13-6 13-13S23 3 16 3zm7.4 18.6c-.3.9-1.7 1.7-2.6 1.8-.7.1-1.6.2-5.2-1.1-4.4-1.7-7.2-6.1-7.4-6.4-.2-.3-1.8-2.4-1.8-4.6s1.1-3.3 1.5-3.7c.4-.4.8-.5 1.1-.5h.8c.3 0 .6 0 .9.7.3.8 1.1 2.7 1.2 2.9.1.2.2.5 0 .7-.1.3-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.3.9-1.1 1.2-1.4.3-.3.5-.3.9-.2.4.2 2.3 1.1 2.7 1.3.4.2.7.3.8.4.1.2.1 1-.2 1.9z"/></svg>
+            Enviar por WhatsApp
+          </button>
+          <span class="form-note">Se abre WhatsApp con tu mensaje ya escrito.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div><strong>Martín Oliveto</strong> — Oficios a domicilio</div>
+  <div>+54 9 351 310-9305</div>
+</footer>
+
+<a class="wsp-bubble" id="wsp-bubble" href="#" aria-label="Escribir por WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3 9 3 16c0 2.6.8 5 2.1 7L3 29l6.2-2C11 28 13 28.5 16 28.5c7 0 13-6 13-13S23 3 16 3zm7.4 18.6c-.3.9-1.7 1.7-2.6 1.8-.7.1-1.6.2-5.2-1.1-4.4-1.7-7.2-6.1-7.4-6.4-.2-.3-1.8-2.4-1.8-4.6s1.1-3.3 1.5-3.7c.4-.4.8-.5 1.1-.5h.8c.3 0 .6 0 .9.7.3.8 1.1 2.7 1.2 2.9.1.2.2.5 0 .7-.1.3-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.3.9-1.1 1.2-1.4.3-.3.5-.3.9-.2.4.2 2.3 1.1 2.7 1.3.4.2.7.3.8.4.1.2.1 1-.2 1.9z"/></svg>
+</a>
+
+<!-- CARPINTERÍA -->
+<section class="service-page" id="page-carpinteria" hidden>
+  <div class="wrap">
+    <div class="sp-topbar">
+      <button class="btn-back" data-close="page-carpinteria">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        Volver
+      </button>
+      <span class="logo-badge">MO</span>
+    </div>
+    <div class="sp-hero">
+      <span class="menu-icon" style="background:var(--c-carpinteria-soft); color:var(--c-carpinteria);">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30 L8 10 L28 30 Z"/><path d="M12 22 h8" stroke-width="1.6"/></svg>
+      </span>
+      <div>
+        <h1>Carpintería</h1>
+        <p>Muebles a medida, arreglos y restauración de madera.</p>
+      </div>
+    </div>
+    <div class="jobs-list">
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-carpinteria-soft); color:var(--c-carpinteria);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="5" width="26" height="30" rx="3" fill="currentColor"/><rect x="19.2" y="8" width="1.6" height="24" fill="#fff" opacity="0.45"/><circle cx="24" cy="20" r="1.6" fill="#fff"/></svg></span>
+        <div><div class="job-name">Muebles a medida</div><div class="job-desc">Diseño y armado según el espacio disponible.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-carpinteria-soft); color:var(--c-carpinteria);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="4" width="20" height="32" rx="2" fill="currentColor"/><rect x="14" y="9" width="12" height="10" rx="1" fill="#fff" opacity="0.32"/><rect x="14" y="21" width="12" height="10" rx="1" fill="#fff" opacity="0.32"/><circle cx="25" cy="21" r="1.6" fill="#fff"/></svg></span>
+        <div><div class="job-name">Puertas y placares</div><div class="job-desc">Ajuste, reparación y cambio de herrajes.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-carpinteria-soft); color:var(--c-carpinteria);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="16" width="32" height="10" rx="3" fill="currentColor"/><path d="M28 6 l2 4.2 4.2 2-4.2 2L28 18.4l-2-4.2L21.8 12.2l4.2-2z" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Restauración de madera</div><div class="job-desc">Lijado, tratamiento y terminación.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-carpinteria-soft); color:var(--c-carpinteria);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="10" width="32" height="4" rx="2" fill="currentColor"/><rect x="4" y="26" width="32" height="4" rx="2" fill="currentColor"/><rect x="8" y="16" width="9" height="8" rx="1.5" fill="currentColor"/><rect x="21" y="16" width="11" height="8" rx="1.5" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Estanterías</div><div class="job-desc">Instalación a medida en cualquier ambiente.</div></div>
+      </div>
+    </div>
+    <div class="sp-cta">
+      <button class="btn-wsp" data-consulta="Carpintería">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3 9 3 16c0 2.6.8 5 2.1 7L3 29l6.2-2C11 28 13 28.5 16 28.5c7 0 13-6 13-13S23 3 16 3zm7.4 18.6c-.3.9-1.7 1.7-2.6 1.8-.7.1-1.6.2-5.2-1.1-4.4-1.7-7.2-6.1-7.4-6.4-.2-.3-1.8-2.4-1.8-4.6s1.1-3.3 1.5-3.7c.4-.4.8-.5 1.1-.5h.8c.3 0 .6 0 .9.7.3.8 1.1 2.7 1.2 2.9.1.2.2.5 0 .7-.1.3-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.3.9-1.1 1.2-1.4.3-.3.5-.3.9-.2.4.2 2.3 1.1 2.7 1.3.4.2.7.3.8.4.1.2.1 1-.2 1.9z"/></svg>
+        Consultar por carpintería
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- AIRE ACONDICIONADO -->
+<section class="service-page" id="page-ac" hidden>
+  <div class="wrap">
+    <div class="sp-topbar">
+      <button class="btn-back" data-close="page-ac">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        Volver
+      </button>
+      <span class="logo-badge">MO</span>
+    </div>
+    <div class="sp-hero">
+      <span class="menu-icon" style="background:var(--c-ac-soft); color:var(--c-ac);">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="24" height="12" rx="3"/><path d="M10 15 h16 M10 18 h16"/><path d="M20 24 v8 M16 28 l4 4 4-4"/></svg>
+      </span>
+      <div>
+        <h1>Aire Acondicionado</h1>
+        <p>Instalación y mantenimiento de equipos split.</p>
+      </div>
+    </div>
+    <div class="jobs-list">
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-ac-soft); color:var(--c-ac);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="10" width="28" height="14" rx="4" fill="currentColor"/><rect x="9" y="15" width="18" height="2.4" rx="1.2" fill="#fff" opacity="0.5"/><rect x="9" y="19" width="18" height="2.4" rx="1.2" fill="#fff" opacity="0.5"/><path d="M20 26 v8 M16 30 l4 4 4-4" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><div class="job-name">Instalación de equipos</div><div class="job-desc">Montaje de unidad interior y exterior.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-ac-soft); color:var(--c-ac);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="12" width="22" height="13" rx="4" fill="currentColor"/><rect x="8" y="17" width="14" height="2.2" rx="1.1" fill="#fff" opacity="0.5"/><path d="M31 8 l1.6 3.4 3.4 1.6-3.4 1.6L31 18l-1.6-3.4L26 13l3.4-1.6z" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Limpieza y service</div><div class="job-desc">Filtros, serpentina y desinfección.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-ac-soft); color:var(--c-ac);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="13" y="8" width="14" height="24" rx="4" fill="currentColor"/><circle cx="20" cy="17" r="3.2" fill="#fff"/><rect x="17" y="4" width="6" height="4" rx="1" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Carga de gas</div><div class="job-desc">Revisión de presión y recarga.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-ac-soft); color:var(--c-ac);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="10" width="20" height="12" rx="4" fill="currentColor"/><circle cx="27" cy="27" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M31.5 31.5 L36 36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
+        <div><div class="job-name">Diagnóstico de fallas</div><div class="job-desc">Revisión completa del equipo.</div></div>
+      </div>
+    </div>
+    <div class="sp-cta">
+      <button class="btn-wsp" data-consulta="Aire Acondicionado">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3 9 3 16c0 2.6.8 5 2.1 7L3 29l6.2-2C11 28 13 28.5 16 28.5c7 0 13-6 13-13S23 3 16 3zm7.4 18.6c-.3.9-1.7 1.7-2.6 1.8-.7.1-1.6.2-5.2-1.1-4.4-1.7-7.2-6.1-7.4-6.4-.2-.3-1.8-2.4-1.8-4.6s1.1-3.3 1.5-3.7c.4-.4.8-.5 1.1-.5h.8c.3 0 .6 0 .9.7.3.8 1.1 2.7 1.2 2.9.1.2.2.5 0 .7-.1.3-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.3.9-1.1 1.2-1.4.3-.3.5-.3.9-.2.4.2 2.3 1.1 2.7 1.3.4.2.7.3.8.4.1.2.1 1-.2 1.9z"/></svg>
+        Consultar por A/A
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- HERRERÍA -->
+<section class="service-page" id="page-herreria" hidden>
+  <div class="wrap">
+    <div class="sp-topbar">
+      <button class="btn-back" data-close="page-herreria">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        Volver
+      </button>
+      <span class="logo-badge">MO</span>
+    </div>
+    <div class="sp-hero">
+      <span class="menu-icon" style="background:var(--c-herreria-soft); color:var(--c-herreria);">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8 v24 M16 8 v24 M22 8 v24 M28 8 v24 M8 14 h22 M8 24 h22"/></svg>
+      </span>
+      <div>
+        <h1>Herrería</h1>
+        <p>Rejas, portones y estructuras metálicas a medida.</p>
+      </div>
+    </div>
+    <div class="jobs-list">
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-herreria-soft); color:var(--c-herreria);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="6" width="4" height="28" rx="1.5" fill="currentColor"/><rect x="18" y="6" width="4" height="28" rx="1.5" fill="currentColor"/><rect x="28" y="6" width="4" height="28" rx="1.5" fill="currentColor"/><rect x="6" y="12" width="28" height="3" fill="currentColor"/><rect x="6" y="24" width="28" height="3" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Rejas y portones</div><div class="job-desc">Fabricación e instalación a medida.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-herreria-soft); color:var(--c-herreria);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="4"/><path d="M6 6 L34 34 M34 6 L6 34" stroke="currentColor" stroke-width="3"/></svg></span>
+        <div><div class="job-name">Estructuras metálicas</div><div class="job-desc">Bases, marcos y refuerzos.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-herreria-soft); color:var(--c-herreria);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M8 32 L22 18" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M22 18 l6-6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M29 6 l2 4.2 4.2 2-4.2 2L29 18.4l-2-4.2L22.8 12.2l4.2-2z" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Soldadura</div><div class="job-desc">Uniones y refuerzos en distintos metales.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-herreria-soft); color:var(--c-herreria);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M24 6 a6 6 0 1 0 4 10.5 L36 24.5 l-4 4-8.5-8A6 6 0 0 0 24 6z" fill="currentColor"/><rect x="6" y="28" width="12" height="6" rx="2" transform="rotate(-45 12 31)" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Reparaciones</div><div class="job-desc">Arreglos de herrajes y estructuras existentes.</div></div>
+      </div>
+    </div>
+    <div class="sp-cta">
+      <button class="btn-wsp" data-consulta="Herrería">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3 9 3 16c0 2.6.8 5 2.1 7L3 29l6.2-2C11 28 13 28.5 16 28.5c7 0 13-6 13-13S23 3 16 3zm7.4 18.6c-.3.9-1.7 1.7-2.6 1.8-.7.1-1.6.2-5.2-1.1-4.4-1.7-7.2-6.1-7.4-6.4-.2-.3-1.8-2.4-1.8-4.6s1.1-3.3 1.5-3.7c.4-.4.8-.5 1.1-.5h.8c.3 0 .6 0 .9.7.3.8 1.1 2.7 1.2 2.9.1.2.2.5 0 .7-.1.3-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.3.9-1.1 1.2-1.4.3-.3.5-.3.9-.2.4.2 2.3 1.1 2.7 1.3.4.2.7.3.8.4.1.2.1 1-.2 1.9z"/></svg>
+        Consultar por herrería
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- PINTURA -->
+<section class="service-page" id="page-pintura" hidden>
+  <div class="wrap">
+    <div class="sp-topbar">
+      <button class="btn-back" data-close="page-pintura">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        Volver
+      </button>
+      <span class="logo-badge">MO</span>
+    </div>
+    <div class="sp-hero">
+      <span class="menu-icon" style="background:var(--c-pintura-soft); color:var(--c-pintura);">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="16" height="8" rx="2"/><path d="M17 17 v6 M17 23 h5 v8 h-5z"/><path d="M27 11 h5"/></svg>
+      </span>
+      <div>
+        <h1>Pintura</h1>
+        <p>Interiores, exteriores y terminaciones prolijas.</p>
+      </div>
+    </div>
+    <div class="jobs-list">
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-pintura-soft); color:var(--c-pintura);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="20" height="10" rx="3" fill="currentColor"/><rect x="14" y="16" width="4" height="8" fill="currentColor"/><rect x="10" y="24" width="12" height="10" rx="2" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Interior y exterior</div><div class="job-desc">Pintura de paredes, cielorrasos y frentes.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-pintura-soft); color:var(--c-pintura);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M4 18 L20 6 L36 18 Z" fill="currentColor"/><path d="M20 22 c-3 4-3 7 0 9.5 3-2.5 3-5.5 0-9.5z" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Impermeabilización</div><div class="job-desc">Tratamiento de techos y humedades.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-pintura-soft); color:var(--c-pintura);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="4" width="10" height="32" rx="3" fill="currentColor"/><rect x="20" y="8" width="14" height="4" rx="1" fill="currentColor"/><rect x="20" y="16" width="14" height="4" rx="1" fill="currentColor"/><rect x="20" y="24" width="10" height="4" rx="1" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Empapelado</div><div class="job-desc">Colocación de papel y revestimientos.</div></div>
+      </div>
+      <div class="job-row">
+        <span class="job-img" style="background:var(--c-pintura-soft); color:var(--c-pintura);"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M8 32 L22 18 l4 4 -14 14z" fill="currentColor"/><rect x="24" y="8" width="4" height="10" rx="1.5" transform="rotate(45 26 13)" fill="currentColor"/></svg></span>
+        <div><div class="job-name">Terminaciones a la cal</div><div class="job-desc">Acabados finos y prolijos.</div></div>
+      </div>
+    </div>
+    <div class="sp-cta">
+      <button class="btn-wsp" data-consulta="Pintura">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3 9 3 16c0 2.6.8 5 2.1 7L3 29l6.2-2C11 28 13 28.5 16 28.5c7 0 13-6 13-13S23 3 16 3zm7.4 18.6c-.3.9-1.7 1.7-2.6 1.8-.7.1-1.6.2-5.2-1.1-4.4-1.7-7.2-6.1-7.4-6.4-.2-.3-1.8-2.4-1.8-4.6s1.1-3.3 1.5-3.7c.4-.4.8-.5 1.1-.5h.8c.3 0 .6 0 .9.7.3.8 1.1 2.7 1.2 2.9.1.2.2.5 0 .7-.1.3-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.3.9-1.1 1.2-1.4.3-.3.5-.3.9-.2.4.2 2.3 1.1 2.7 1.3.4.2.7.3.8.4.1.2.1 1-.2 1.9z"/></svg>
+        Consultar por pintura
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var WSP_NUMBER = "5493513109305";
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function openWsp(texto){
+    var url = "https://wa.me/" + WSP_NUMBER + "?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank", "noopener");
+  }
+
+  document.getElementById("wsp-bubble").href =
+    "https://wa.me/" + WSP_NUMBER + "?text=" + encodeURIComponent("Hola Martín! Quiero hacer una consulta.");
+
+  document.querySelectorAll("[data-scroll]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var target = document.getElementById(btn.dataset.scroll);
+      if (target) target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    });
+  });
+
+  function openPage(id){
+    var page = document.getElementById(id);
+    if (!page) return;
+    page.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    requestAnimationFrame(function(){ page.classList.add("open"); });
+    page.scrollTop = 0;
+  }
+  function closePage(id){
+    var page = document.getElementById(id);
+    if (!page) return;
+    page.classList.remove("open");
+    document.documentElement.style.overflow = "";
+    setTimeout(function(){ page.hidden = true; }, reduce ? 0 : 280);
+  }
+
+  document.querySelectorAll("[data-open]").forEach(function(btn){
+    btn.addEventListener("click", function(){ openPage(btn.dataset.open); });
+  });
+  document.querySelectorAll("[data-close]").forEach(function(btn){
+    btn.addEventListener("click", function(){ closePage(btn.dataset.close); });
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape"){
+      document.querySelectorAll(".service-page.open").forEach(function(p){ closePage(p.id); });
+    }
+  });
+
+  document.querySelectorAll("[data-consulta]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      openWsp("Hola, buen día. Necesito el servicio de " + btn.dataset.consulta + ".");
+    });
+  });
+
+  document.getElementById("form-consulta").addEventListener("submit", function(e){
+    e.preventDefault();
+    var nombre = document.getElementById("c-nombre").value.trim();
+    var servicio = document.getElementById("c-servicio").value;
+    var mensaje = document.getElementById("c-mensaje").value.trim();
+    if (!nombre || !mensaje) return;
+    openWsp("Hola, buen día. Soy " + nombre + " y necesito el servicio de " + servicio + ".\nQue necesito:\n" + mensaje);
+  });
+})();
+</script>
